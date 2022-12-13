@@ -43,9 +43,9 @@
 ***
 Александр Анохин - https://github.com/Aleksandr-Anokhin
 ***
-
+Егор Смольянинов  https://t.me/Green21Tea  
 ***
-
+Валерия
 ***
-
+Denis Guzanov  https://t.me/Guzanov_event
 ***
