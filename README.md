@@ -40,15 +40,17 @@
 
 
 Модули:
-1. Главный модуль
+1. controller
 (функции: def() def())
-2. Добавление записи
+2. menu
+(функции: def select_work())
+3. export
 (функции: def() def())
-3. Вывод записей на экран
+4. import
 (функции: def() def())
-4. Импорт
+5. loger
 (функции: def() def())
-5. Экспорт
+6. operations
 (функции: def() def())
 
 
@@ -59,7 +61,7 @@
 ***
 Егор Смольянинов  https://t.me/Green21Tea  
 ***
-Валерия
+Валерия   - diagram,
 ***
 Denis Guzanov  https://t.me/Guzanov_event
 ***
