@@ -13,6 +13,9 @@ def new_contact():
     contact_details = ('[' + first_name + ' ' + last_name + ' ' + patronymic +
                        '; ' + date_of_birth + '; ' + phone_number + '; ' + mail + ']')
     write_to_file('loger.txt', contact_details)
+    
+    import_data.import_csv(contact_details)
+    
     print('Данные успешно сохранены')
 
 
@@ -49,7 +52,7 @@ def write_to_file(file_name, result):
 # Открываем и читаем файл
 def read_file(file):
     with open(file,'r', encoding="utf8") as data:
-        file_read = str(data.read())
+        file_read = data.read()
     return file_read
 
 
@@ -71,4 +74,6 @@ def searchcontact():
             break
     if found == False:
         print('Запрашиваемый Вами контакт не найден', searchname) 
+
+
 
