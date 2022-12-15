@@ -10,15 +10,15 @@ def distribute(n):
         enter = input('Нажмите Enter для завершения')
         #menu()
     elif n == '2':
+        filecontents = operations.read_file('loger.txt')
         #myfile = open(filename, 'r+')
-        filecontents = myfile.read()
+        #filecontents = myfile.read()
         if len(filecontents) == 0:
             print('Записей нет')
         else:
             print(filecontents)
-        #myfile.close
         enter = input('Нажмите Enter для завершения')
-        menu()
+        #menu()
     elif n == '5':
         #searchcontact()
         enter = input('Нажмите Enter для завершения')
