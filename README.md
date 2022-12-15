@@ -39,25 +39,12 @@
 6. Удаление записи
 
 
-Модули:
-1. controller
-(функции: def() def())
-2. menu
-(функции: def select_work())
-3. export
-(функции: def() def())
-4. import
-(функции: def() def())
-5. loger
-(функции: def() def())
-6. operations
-(функции: def() def())
 
 
 ***
-Денис Мартьянов - орг
+Денис Мартьянов - орг, menu, operations, controller
 ***
-Александр Анохин - https://github.com/Aleksandr-Anokhin
+Александр Анохин - https://github.com/Aleksandr-Anokhin   menu, operations, controller
 ***
 Егор Смольянинов  https://t.me/Green21Tea  
 ***
