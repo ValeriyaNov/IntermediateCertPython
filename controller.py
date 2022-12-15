@@ -5,13 +5,40 @@ import loger
 import operations
 
 
-def ???????():
-    export_data
-    return 0
+def distribute(n):
+    
+    if n == '1':
+        #new_contact()
+        operations.new_contact()  # переходим в operations
+        enter = input('Нажмите Enter для завершения')
+        menu()
+    elif n == '2':
+        myfile = open(filename, 'r+')
+        filecontents = myfile.read()
+        if len(filecontents) == 0:
+            print('Записей нет')
+        else:
+            print(filecontents)
+        myfile.close
+        enter = input('Нажмите Enter для завершения')
+        menu()
+    elif n == '5':
+        searchcontact()
+        enter = input('Нажмите Enter для завершения')
+        menu()
+    elif n == '6':
+        print('Спасибо за просмотр')
+    else:
+        print('Пожалуста, введите номер пункта меню')
+        enter = input('Нажмите Enter для завершения')
+        menu()
 
 
-def ???????():
+
+'''
+def import_CSV():
     import_data
+    import_csv
     return 0
 
 
@@ -28,3 +55,4 @@ def ???????():
 def ???????():
     operations
     return 0
+'''

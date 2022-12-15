@@ -61,7 +61,7 @@
 ***
 Егор Смольянинов  https://t.me/Green21Tea  
 ***
-Валерия   - diagram,
+Валерия   - diagram, import
 ***
 Denis Guzanov  https://t.me/Guzanov_event
 ***
