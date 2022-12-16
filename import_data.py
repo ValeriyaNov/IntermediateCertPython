@@ -5,7 +5,12 @@ import json
 def import_csv(file_loger):
     # https://pythonworld.ru/moduli/modul-csv.html
     with open('import.csv', "a", newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
+        #writer = csv.writer(file) 
+        
+        fieldnames = ['Имя','Фамилия','Отчество','Дата рождения','Номер телефона','Email']
+        writer = csv.DictWriter(file, fieldnames=fieldnames)
+        writer.writeheader()
+        
         writer.writerow(file_loger)
         print('Данные успешно сохранены в csv')
 

@@ -29,8 +29,8 @@ def distribute(n, file_loger):
         #searchcontact()
         enter = input('Нажмите Enter для завершения')
         #menu()
-    else:
-        print('Пожалуста, введите номер пункта меню')
-        enter = input('Нажмите Enter для завершения')
+    #else:
+    #    print('Пожалуста, введите номер пункта меню')
+    #    enter = input('Нажмите Enter для завершения')
         #menu()
 
