@@ -20,7 +20,7 @@ def new_contact():
                        'Отчество': patronymic,
                        'Дата рождения': date_of_birth, 'Номер телефона':
                        phone_number, 'Email': mail}
-    #write_to_file('loger.txt', contact_details)
+    #write_to_file('loger.txt', contact_details)  Не использется т.к. нет в условии задачи
     #print('Данные успешно сохранены')
     return contact_details
 
@@ -49,24 +49,24 @@ def input_patronymic():
     return firstchar.upper() + pa_name
 
 
+''' Удалить в процессе т.к. не используется
 # Открываем и записываем в файл
 def write_to_file(file_name, result):
     with open(file_name, 'a+', encoding='utf-8') as f_obj:
         f_obj.write(result + '\n')
-
 
 # Открываем и читаем файл
 def read_file(file):
     with open(file,'r', encoding="utf8") as data:
         file_read = data.read()
     return file_read
+'''     
 
 
 def read_json():
     with open('import.json', 'r', encoding='UTF-8') as file: 
         data = json.load(file)
         print(data)
-        
         
 def read_csv():        
     with open('import.csv', "r", newline='', encoding='utf-8') as file:

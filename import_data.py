@@ -5,14 +5,12 @@ import json
 def import_csv(file_loger):
     # https://pythonworld.ru/moduli/modul-csv.html
     with open('import.csv', "a", newline='', encoding='utf-8') as file:
-        #writer = csv.writer(file) 
-        
         fieldnames = ['Имя','Фамилия','Отчество','Дата рождения','Номер телефона','Email']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
-
         writer.writeheader()
-        # Карала,Каронарс,Каонмморвна,1.1.1000,123456789,xdfb@zdvb.com
         writer.writerow(file_loger)
+        # получается такой вид в файле:
+        # Карала,Каронарс,Каонмморвна,1.1.1000,123456789,xdfb@zdvb.com
         print('Данные успешно сохранены в csv')
 
 
@@ -47,4 +45,4 @@ def import_json(file_loger):
 
 
 if __name__ == "__main__":
-    from pprint import pprint
+    from pprint import pprint   # что это и зачем?
