@@ -9,8 +9,9 @@ def import_csv(file_loger):
         
         fieldnames = ['Имя','Фамилия','Отчество','Дата рождения','Номер телефона','Email']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
+
         writer.writeheader()
-        
+        # Карала,Каронарс,Каонмморвна,1.1.1000,123456789,xdfb@zdvb.com
         writer.writerow(file_loger)
         print('Данные успешно сохранены в csv')
 
