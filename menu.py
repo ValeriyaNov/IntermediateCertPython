@@ -17,6 +17,8 @@ def menu():
         print('7. Выход\n')   # ?
         number = input('Выберите пункт меню: ')
         controller.distribute(number, file_loger)
+        if number =='7':
+            break
  
 file_loger = 'loger.txt'
 greeting()
