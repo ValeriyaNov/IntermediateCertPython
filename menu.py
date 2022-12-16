@@ -11,15 +11,17 @@ def menu():
         print('1. Добавить новую запись')  # Работает
         print('2. Вывод записей на экран в формате json')  # Не работает
         print('3. Вывод записей на экран в формате csv')  # Работает
-        print('4. Импорт в json') # ?
+        print('4. Скопировать данные в файл?') # В работе
         print('5. Экспорт')  # ?
         print('6. Поиск')  # ?
         print('7. Выход\n')   # ?
         number = input('Выберите пункт меню: ')
-        controller.distribute(number, file_loger)
+        controller.distribute(number)
         if number =='7':
             break
  
-file_loger = 'loger.txt'
+ 
+path_json_data = 'import.json'  # поменять все пути на этот
+path_csv_data = 'import.csv'   # поменять все пути на этот
 greeting()
 menu()

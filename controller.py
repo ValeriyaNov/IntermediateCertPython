@@ -2,9 +2,8 @@ import operations
 import export_data
 import import_data
 
-#file_loger = 'loger.txt'
 
-def distribute(n, file_loger):
+def distribute(n):
     if n == '1':
         temp = operations.new_contact()  # переходим в operations
         import_data.import_csv(temp)
@@ -21,9 +20,8 @@ def distribute(n, file_loger):
         operations.read_csv()
         enter = input('Нажмите Enter для завершения')
     elif n == '4':
-        file_temp = operations.read_file(file_loger)
-        file_csv = import_data.import_json(file_temp)
-        operations.write_to_file('import.json', file_csv)
+        file_name_expott = input('Нипишите имя файла куда вы хотите скопировать данные: ')
+        #export_data.path_json_data(file_name_expott)
         enter = input('Нажмите Enter для завершения')
     elif n == '5':
         #searchcontact()
