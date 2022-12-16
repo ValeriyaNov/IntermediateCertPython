@@ -1,5 +1,7 @@
 #import controller
 import import_data
+import json
+import csv
 
 
 # Создаем новый контакт, сохраняем в loger.txt
@@ -10,13 +12,17 @@ def new_contact():
     date_of_birth = input('Дата рождения: ')
     phone_number = input('Номер телефона: ')
     mail = input('Эл. почта: ')
-    contact_details = ('[' + first_name + ' ' + last_name + ' ' + patronymic +
-                       '; ' + date_of_birth + '; ' + phone_number + '; ' + mail + ']')
-    write_to_file('loger.txt', contact_details)
-    
-    import_data.import_csv(contact_details)
-    
-    print('Данные успешно сохранены')
+    #contact_details = ('[Name' + first_name + ' last name ' + last_name + 
+    #                   ' Patronymic: ' + patronymic +
+    #                   '; Date of birth: ' + date_of_birth + '; Phone number' +
+    #                   phone_number + '; Email' + mail + ']')
+    contact_details = {'Имя': first_name, 'Фамилия': last_name, 
+                       'Отчество': patronymic,
+                       'Дата рождения': date_of_birth, 'Номер телефона':
+                       phone_number, 'Email': mail}
+    #write_to_file('loger.txt', contact_details)
+    #print('Данные успешно сохранены')
+    return contact_details
 
 
 # Вводим имя
@@ -54,6 +60,19 @@ def read_file(file):
     with open(file,'r', encoding="utf8") as data:
         file_read = data.read()
     return file_read
+
+
+def read_json():
+    with open('import.json', 'r', encoding='UTF-8') as file: 
+        data = json.load(file)
+        print(data)
+        
+        
+def read_csv():        
+    with open('import.csv', "r", newline='', encoding='utf-8') as file:
+        file_reader = csv.DictReader(file, delimiter = ";") 
+        for row in file_reader:
+            print(row)
 
 
 # Поиск
