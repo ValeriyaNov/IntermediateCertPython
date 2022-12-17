@@ -2,27 +2,23 @@
 import import_data
 import json
 import csv
+from menu import filename
+
 
 
 # Создаем новый контакт, сохраняем в loger.txt
 def new_contact():
     first_name = input_firstname()
     last_name = input_lastname()
-    patronymic = input_patronymic()
-    date_of_birth = input('Дата рождения: ')
     phone_number = input('Номер телефона: ')
-    mail = input('Эл. почта: ')
-    #contact_details = ('[Name' + first_name + ' last name ' + last_name + 
-    #                   ' Patronymic: ' + patronymic +
-    #                   '; Date of birth: ' + date_of_birth + '; Phone number' +
-    #                   phone_number + '; Email' + mail + ']')
-    contact_details = {'Имя': first_name, 'Фамилия': last_name, 
-                       'Отчество': patronymic,
-                       'Дата рождения': date_of_birth, 'Номер телефона':
-                       phone_number, 'Email': mail}
-    #write_to_file('loger.txt', contact_details)  Не использется т.к. нет в условии задачи
-    #print('Данные успешно сохранены')
-    return contact_details
+    description = input_description()
+    new_list = [first_name, last_name, phone_number, description]
+    save_to_csv(new_list)
+    #contact_details = {'Имя': first_name, 'Фамилия': last_name, 
+    #                   'Отчество': patronymic,
+    #                   'Дата рождения': date_of_birth, 'Номер телефона':
+    #                   phone_number, 'Email': mail}
+    print('Данные успешно сохранены')
 
 
 # Вводим имя
@@ -41,13 +37,34 @@ def input_lastname():
     return firstchar.upper() + la_name
 
 
-# Вводим отчество
-def input_patronymic():
-    first = input('Отчество: ')
+def input_description():
+    first = input('Описание: ')
     pa_name = first[1:]
     firstchar = first[0]
     return firstchar.upper() + pa_name
 
+
+def save_to_csv(new_contacts):
+    with open('phonebook.csv', 'a') as bd:
+        for i in range(len(new_contacts)):
+            if i != len(new_contacts) - 1:
+                bd.write(f'{new_contacts[i]};')
+            else:
+                bd.write(f'{new_contacts[i]}')
+        bd.write('\n')
+
+
+def read_contact(unit = 1, file_name = 'phonebook.csv'):
+    with open(file_name, newline = '') as f:
+        reader = csv.reader(f, delimiter='; ')
+        for row in reader:
+            if unit == 2:
+                item = ', '.join(row)
+                print(item)
+            if unit == 1:
+                for item in row:
+                    print(item)
+                print()
 
 ''' Удалить в процессе т.к. не используется
 # Открываем и записываем в файл
@@ -60,7 +77,6 @@ def read_file(file):
     with open(file,'r', encoding="utf8") as data:
         file_read = data.read()
     return file_read
-'''     
 
 
 def read_json():
@@ -73,6 +89,7 @@ def read_csv():
         file_reader = csv.DictReader(file, delimiter = ";") 
         for row in file_reader:
             print(row)
+'''     
 
 
 # Поиск
@@ -81,7 +98,7 @@ def searchcontact():
     se_name = searchname[1:]
     firstchar = searchname[0]
     searchname = firstchar.upper() + se_name
-    myfile= open(filename, 'r+')
+    myfile = open(filename, 'r+')
     filecontents = myfile.readlines()
 
     found = False
@@ -92,7 +109,5 @@ def searchcontact():
             found = True
             break
     if found == False:
-        print('Запрашиваемый Вами контакт не найден', searchname) 
-
-
+        print('Запрашиваемый Вами контакт не найден...', searchname) 
 

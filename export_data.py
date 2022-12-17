@@ -4,6 +4,38 @@ from menu import path_csv_data
 from menu import path_json_data
 
 
+def csv_to_data(file_name = 'import.csv'):
+    with open(file_name, newline='') as f:
+        csv_f = csv.reader(f, delimiter=';')
+        data = []
+        for row in csv_f:
+            data.append(row)
+    return data
+
+
+def export_to_xml(data = csv_to_data()):
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml += '<contacts>\n'
+    for row in data:
+        first_name, last_name, phone_number, description = row
+        xml += '    <contact>\n'
+        xml += '        <Name>{}</Name>\n' \
+            .format(first_name)
+        xml += '        <Last_name>{}</Last_name>\n' \
+            .format(last_name)
+        xml += '        <Phone_number>{}</Phone_number>\n' \
+            .format(phone_number)
+        xml += '        <Info>{}</Info>\n' \
+            .format(description)
+        xml += '    </contact>\n'
+    xml += '</contacts>'
+    with open('phonebook.xml', 'w') as page:
+        page.write(xml)
+    return data
+
+
+
+'''
 def export_json(file_path):
     with open(path_json_data, 'r', encoding='UTF-8') as file: 
         data = json.load(file)
@@ -11,3 +43,4 @@ def export_json(file_path):
         json.dump(data, file, indent=2, ensure_ascii=False)
         file.write(',\n')
         print(f'Данные успешно сохранены в файл {file_path}.json')
+'''
