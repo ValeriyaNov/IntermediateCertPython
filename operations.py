@@ -46,7 +46,7 @@ def input_description():
 
 # Код от Александра
 def save_to_csv(new_contacts):
-    with open('phonebook.csv', 'a') as bd:
+    with open('phonebook.csv', 'a', encoding='utf-8') as bd:
         for i in range(len(new_contacts)):
             if i != len(new_contacts) - 1:
                 bd.write(f'{new_contacts[i]};')
