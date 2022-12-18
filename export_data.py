@@ -44,3 +44,38 @@ def export_json(user_file_name, file_name = 'phonebook.csv'):
         file.write(',\n')
         print(f'Данные успешно сохранены в файл {user_file_name}.json')
 
+# defining the function to convert CSV file to JSON file 
+def convjson(user_file_name, csvFilename = 'phonebook.csv'): 
+    '''
+    # creating a dictionary 
+    mydata = {} 
+     
+    # reading the data from CSV file 
+    with open(csvFilename, encoding = 'utf-8') as csvfile: 
+        csvRead = csv.DictReader(csvfile) 
+         
+        # Converting rows into dictionary and adding it to data 
+        for rows in csvRead: 
+            mydata.append(rows)
+ 
+    # dumping the data 
+    with open(f"{user_file_name}.json", 'w', encoding = 'utf-8') as jsonfile: 
+        jsonfile.write(json.dumps(csvRead, indent = 4)) 
+    '''
+
+
+
+    template = '{{"Имя": "{}", "Фамилия": "{}", "Телефон": "{}", "Описания": "{}", }}'
+    result = []
+    with open(csvFilename, encoding = 'utf-8') as fin:
+        reader = csv.reader(fin)
+        for line in reader:
+            line = [x if x != '-' else 'null' for x in line]
+            result.append(json.loads(template.format(' '.join(line[0:2]))))
+            print(result)
+    #with open(f"{user_file_name}.json", 'w', encoding = 'utf-8') as jsonfile: 
+    #    jsonfile.write(json.dumps(result, indent = 4)) 
+
+    #print(*([json.dumps(j, sort_keys=True,
+    #                ensure_ascii=False,
+    #                indent=4) for j in result]), sep=',\n')

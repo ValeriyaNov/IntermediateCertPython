@@ -28,7 +28,8 @@ def distribute(n):
             export_data.export_to_xml(file_name_expott)
             print('Данные успешно экспортированы в формате xml!\n')
         elif num_exp == '2':
-            export_data.export_json(file_name_expott)
+            #export_data.export_json(file_name_expott)
+            export_data.convjson(file_name_expott)
             print('Данные успешно экспортированы в формате json!\n')
         else:
             print('Пожалуста, введите номер пункта меню: ')
