@@ -1,12 +1,7 @@
-#import controller
-import import_data
-import json
 import csv
 
 
-
-
-# Создаем новый контакт, сохраняем в loger.txt
+# Создаем новый контакт
 def new_contact():
     first_name = input_firstname()
     last_name = input_lastname()
@@ -14,10 +9,6 @@ def new_contact():
     description = input_description()
     new_list = [first_name, last_name, phone_number, description]
     save_to_csv(new_list)
-    #contact_details = {'Имя': first_name, 'Фамилия': last_name, 
-    #                   'Отчество': patronymic,
-    #                   'Дата рождения': date_of_birth, 'Номер телефона':
-    #                   phone_number, 'Email': mail}
     print('Данные успешно сохранены')
 
 
@@ -37,6 +28,7 @@ def input_lastname():
     return firstchar.upper() + la_name
 
 
+#  Вводим описание
 def input_description():
     first = input('Описание: ')
     pa_name = first[1:]
@@ -44,9 +36,9 @@ def input_description():
     return firstchar.upper() + pa_name
 
 
-# Код от Александра
-def save_to_csv(new_contacts):
-    with open('phonebook.csv', 'a', encoding='utf-8') as bd:
+# Сохраняем в csv
+def save_to_csv(new_contacts, file_name = 'phonebook.csv'):
+    with open(file_name, "a", newline='', encoding='utf-8') as bd:
         for i in range(len(new_contacts)):
             if i != len(new_contacts) - 1:
                 bd.write(f'{new_contacts[i]};')
@@ -55,10 +47,10 @@ def save_to_csv(new_contacts):
         bd.write('\n')
 
 
-# Код от Александра
+# Читаем csv
 def read_contact(unit = 1, file_name = 'phonebook.csv'):
-    with open(file_name, newline = '') as f:
-        reader = csv.reader(f, delimiter='; ')
+    with open(file_name, "r", newline='', encoding='utf-8') as f:
+        reader = csv.reader(f, delimiter=';')
         for row in reader:
             if unit == 2:
                 item = ', '.join(row)
@@ -67,33 +59,3 @@ def read_contact(unit = 1, file_name = 'phonebook.csv'):
                 for item in row:
                     print(item)
                 print()
-
-
-# Код Дениса
-def read_csv():        
-    with open('phonebook.csv', "r", newline='', encoding='utf-8') as file:
-        file_reader = csv.DictReader(file, delimiter = ";") 
-        for row in file_reader:
-            print(row)
-
-
-''' Удалить в процессе т.к. не используется
-# Открываем и записываем в файл
-def write_to_file(file_name, result):
-    with open(file_name, 'a+', encoding='utf-8') as f_obj:
-        f_obj.write(result + '\n')
-
-# Открываем и читаем файл
-def read_file(file):
-    with open(file,'r', encoding="utf8") as data:
-        file_read = data.read()
-    return file_read
-
-
-def read_json():
-    with open('import.json', 'r', encoding='UTF-8') as file: 
-        data = json.load(file)
-        print(data)
-        
-'''     
-

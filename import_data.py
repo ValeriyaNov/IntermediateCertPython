@@ -1,5 +1,4 @@
 import csv
-#import json
 
 
 '''
@@ -11,7 +10,12 @@ def import_user():
     print()
 
 
+
+
+
 '''
+Удалить после того как все заработает
+
 def import_csv(file_loger):
     # https://pythonworld.ru/moduli/modul-csv.html
     with open('import.csv', "a", newline='', encoding='utf-8') as file:
