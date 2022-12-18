@@ -44,6 +44,7 @@ def input_description():
     return firstchar.upper() + pa_name
 
 
+# Код от Александра
 def save_to_csv(new_contacts):
     with open('phonebook.csv', 'a') as bd:
         for i in range(len(new_contacts)):
@@ -54,6 +55,7 @@ def save_to_csv(new_contacts):
         bd.write('\n')
 
 
+# Код от Александра
 def read_contact(unit = 1, file_name = 'phonebook.csv'):
     with open(file_name, newline = '') as f:
         reader = csv.reader(f, delimiter='; ')
@@ -65,6 +67,15 @@ def read_contact(unit = 1, file_name = 'phonebook.csv'):
                 for item in row:
                     print(item)
                 print()
+
+
+# Код Дениса
+def read_csv():        
+    with open('phonebook.csv', "r", newline='', encoding='utf-8') as file:
+        file_reader = csv.DictReader(file, delimiter = ";") 
+        for row in file_reader:
+            print(row)
+
 
 ''' Удалить в процессе т.к. не используется
 # Открываем и записываем в файл
@@ -85,29 +96,4 @@ def read_json():
         print(data)
         
 '''     
-def read_csv():        
-    with open('phonebook.csv', "r", newline='', encoding='utf-8') as file:
-        file_reader = csv.DictReader(file, delimiter = ";") 
-        for row in file_reader:
-            print(row)
-
-
-# Поиск
-def searchcontact():
-    searchname = input('Введите имя для поиска среди записей: ')
-    se_name = searchname[1:]
-    firstchar = searchname[0]
-    searchname = firstchar.upper() + se_name
-    myfile = open('phonebook.csv', 'r+')
-    filecontents = myfile.readlines()
-
-    found = False
-    for line in filecontents:
-        if searchname in line:
-            print('Результат поиска: ', end = ' ')
-            print( line)
-            found = True
-            break
-    if found == False:
-        print('Запрашиваемый Вами контакт не найден...', searchname) 
 

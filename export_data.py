@@ -1,10 +1,19 @@
 import csv
 import json
-from menu import path_csv_data
-from menu import path_json_data
+#from menu import filename
 
 
-def csv_to_data(file_name = 'import.csv'):
+# Копируем phonebook в указанный пользователем файл 
+def csv_usrer(file_user, file_name = 'phonebook.csv'):
+    with open('phonebook.csv', 'a') as bd:
+        csv_f = csv.reader(bd, delimiter=';')
+        print('врменно, удалить')
+    with open(f'{file_user}.csv', 'a+') as file_user_bd:
+        csv_f = csv.reader(file_user_bd, delimiter=';')
+        print('file read')
+        
+
+def csv_to_data(file_name = 'phonebook.csv'):
     with open(file_name, newline='') as f:
         csv_f = csv.reader(f, delimiter=';')
         data = []
