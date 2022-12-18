@@ -2,7 +2,7 @@
 import import_data
 import json
 import csv
-from menu import filename
+
 
 
 
@@ -84,12 +84,12 @@ def read_json():
         data = json.load(file)
         print(data)
         
+'''     
 def read_csv():        
-    with open('import.csv', "r", newline='', encoding='utf-8') as file:
+    with open('phonebook.csv', "r", newline='', encoding='utf-8') as file:
         file_reader = csv.DictReader(file, delimiter = ";") 
         for row in file_reader:
             print(row)
-'''     
 
 
 # Поиск
@@ -98,7 +98,7 @@ def searchcontact():
     se_name = searchname[1:]
     firstchar = searchname[0]
     searchname = firstchar.upper() + se_name
-    myfile = open(filename, 'r+')
+    myfile = open('phonebook.csv', 'r+')
     filecontents = myfile.readlines()
 
     found = False
