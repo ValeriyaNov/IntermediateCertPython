@@ -2,7 +2,7 @@ import csv
 import json
 
 
-def csv_to_data(file_name = 'phonebook.csv'):
+def csv_to_data(file_name='phonebook.csv'):
     with open(file_name, "r", newline='', encoding='utf-8') as f:
         csv_f = csv.reader(f, delimiter=';')
         data = []
@@ -11,7 +11,7 @@ def csv_to_data(file_name = 'phonebook.csv'):
     return data
 
 
-def export_to_xml(user_file_name, data = csv_to_data()):
+def export_to_xml(user_file_name, data=csv_to_data()):
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml += '<contacts>\n'
     for row in data:
@@ -28,54 +28,35 @@ def export_to_xml(user_file_name, data = csv_to_data()):
         xml += '    </contact>\n'
     xml += '</contacts>'
     with open(f'{user_file_name}.xml', 'w', encoding='utf-8') as page:
-    
+
         page.write(xml)
     return data
 
 
+# работает
+def csv_to_json(jsonFilePath, csvFilePath='phonebook.csv'):
+
+    jsonArray = csv_to_data()
+    with open(f"{jsonFilePath}.json", 'w', encoding='utf-8') as jsonf:
+        jsonString = json.dumps(jsonArray, indent=4, ensure_ascii=False)
+        jsonf.write(jsonString)
+        '''
+        Если sure_ascii имеет значение true (по умолчанию), 
+        в выводе гарантированно будут экранированы все входящие символы, отличные от ASCII. 
+        Если sure_ascii имеет значение false, эти символы будут выводиться как есть.  
+        '''
 
 
+''' для словарей
 def export_json(user_file_name, file_name = 'phonebook.csv'):
     with open(file_name, "r", newline='', encoding='utf-8') as f:
-        csv_f = csv.reader(f, delimiter=';')
-
-    with open(f"{user_file_name}.json", "a", encoding='utf-8') as file:
-        json.dump(csv_f, file, indent=2, ensure_ascii=False)
-        file.write(',\n')
-        print(f'Данные успешно сохранены в файл {user_file_name}.json')
-
-# defining the function to convert CSV file to JSON file 
-def convjson(user_file_name, csvFilename = 'phonebook.csv'): 
-    '''
-    # creating a dictionary 
-    mydata = {} 
-     
-    # reading the data from CSV file 
-    with open(csvFilename, encoding = 'utf-8') as csvfile: 
-        csvRead = csv.DictReader(csvfile) 
-         
-        # Converting rows into dictionary and adding it to data 
-        for rows in csvRead: 
-            mydata.append(rows)
- 
-    # dumping the data 
-    with open(f"{user_file_name}.json", 'w', encoding = 'utf-8') as jsonfile: 
-        jsonfile.write(json.dumps(csvRead, indent = 4)) 
-    '''
-
-
-
-    template = '{{"Имя": "{}", "Фамилия": "{}", "Телефон": "{}", "Описания": "{}", }}'
-    result = []
-    with open(csvFilename, encoding = 'utf-8') as fin:
-        reader = csv.reader(fin)
-        for line in reader:
-            line = [x if x != '-' else 'null' for x in line]
-            result.append(json.loads(template.format(' '.join(line[0:2]))))
-            print(result)
-    #with open(f"{user_file_name}.json", 'w', encoding = 'utf-8') as jsonfile: 
-    #    jsonfile.write(json.dumps(result, indent = 4)) 
-
-    #print(*([json.dumps(j, sort_keys=True,
-    #                ensure_ascii=False,
-    #                indent=4) for j in result]), sep=',\n')
+        #csv_f = csv.reader(f, delimiter=';')
+        data = []
+        template = '{{"Имя": "{}", "Фамилия": "{}", "Телефон": "{}", "Описания": "{}", }}'
+        
+        
+        fieldnames = ['Имя','Фамилия','Отчество','Дата рождения','Номер телефона','Email']
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerow(data)
+'''
