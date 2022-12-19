@@ -2,7 +2,7 @@ import operations
 import export_data
 import import_data
 import searchcontact
-
+import csv
 
 def distribute(n):
     if n == '1':
