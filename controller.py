@@ -41,11 +41,22 @@ def distribute(n):
         считывание и сохранение, в вашу базу, записей из файла, 
         который указал пользователь
         '''
-        file_name_import = input('Нипишите имя файла откуда вы хотите скопировать данные: ')
+        #file_name_import = input('Нипишите имя файла откуда вы хотите скопировать данные: ')
         # в консоль надо вывести список файлов из которых мы будем брать определенный
         # и добавить проверку есть ли там данные 
         # и затем запускать метод копирования
-        import_data.import_user()
+        
+        num = int(input('Выберете тип файла, из которого будете брать данные 1 - csv, 2 - json   '))
+        if num == 1:
+            arr1 = import_data.copy_cont()    
+            for i in range(len(arr1)):
+                with open('phonebook.csv', "a", encoding='utf-8') as fil:
+                    csv_fil = csv.writer(fil, delimiter=';')
+                    csv_fil.writerow(arr1[i])
+                    print('Данные успешно записаны')
+        if num == 2:
+            import_data.copy_cont_json()
+        
         enter = input('Нажмите Enter для завершения')
 
     elif n == '5':
