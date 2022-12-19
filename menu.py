@@ -1,28 +1,26 @@
-import controller
-
+import controll
+import os
+os.chdir(os.path.dirname(__file__))
 
 def greeting():
     print()
     print('<<ТЕЛЕФОННЫЙ СПРАВОЧНИК>>')
 
+
 def menu():
     while True:
         print('\nМЕНЮ')
         print('1. Добавить новую запись')  # Работает
-        print('2. Вывод записей на экран')  # В работе
-        print('3. Импорт')  # В работе
-        print('4. Скопировать данные в файл?') # В работе
-        print('5. Поиск')  # ?
-        print('6. Выход в меню\n')  # ?
-        print('7. Выход\n')   # ?
+        print('2. Вывод записей на экран')  # выводит в терминал
+        print('3. Скопировать данные в файл?')  # сделала копирование из csv in csv
+        print('4. Сохранить в нашу базу данных?') # сделано
+        print('5. Поиск записи')  # работает
+        print('6. Выход\n')   # работает
         number = input('Выберите пункт меню: ')
-        controller.distribute(number)
-        if number =='7':
+        controll.distrib(number)
+         
+        if number =='6':
             break
  
- 
-path_json_data = 'import.json'  # поменять все пути на этот
-path_csv_data = 'import.csv'   # поменять все пути на этот
-filename = 'phonebook.csv'
 greeting()
 menu()
