@@ -1,14 +1,12 @@
 import csv
-
+import json
+import os
+os.chdir(os.path.dirname(__file__))
 
 '''
 Здесь мы считываем и сохраняем, в нашу базу, записи из файла, 
 который указал пользователь
 '''
-def import_user():
-
-    print()
-
 
 
 
