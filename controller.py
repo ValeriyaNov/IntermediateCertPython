@@ -7,7 +7,7 @@ import searchcontact
 def distribute(n):
     if n == '1':
         temp = operations.new_contact()
-        temp = operations.new_contact()
+        #temp = operations.new_contact()
         enter = input('Нажмите Enter для завершения')
 
 

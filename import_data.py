@@ -72,3 +72,5 @@ def copy_cont_json():
             csv_fil.writerow(arr[i])
 
 
+import os
+print (os.listdir(os.getcwd()))
