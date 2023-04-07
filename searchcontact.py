@@ -1,19 +1,35 @@
 
 
-# Поиск   Код от Александра
-def searchcontact(searchname):
-    se_name = searchname[1:]
-    firstchar = searchname[0]
-    searchname = firstchar.upper() + se_name
-    myfile = open('phonebook.csv', 'r+')
+# Поиск по id
+def search_id(id):
+    
+    myfile = open('database.csv', 'r+', encoding='utf-8')
     filecontents = myfile.readlines()
 
     found = False
     for line in filecontents:
-        if searchname in line:
+        if id in line:
             print('Результат поиска: ', end = ' ')
             print( line)
             found = True
             break
     if found == False:
-        print('Запрашиваемый Вами контакт не найден...', searchname) 
+        print('Заметка с найденым id не найдена...', id) 
+    return line
+
+# Поиск по name
+def search_name(name):
+    
+    myfile = open('database.csv', 'r+', encoding='utf-8')
+    filecontents = myfile.readlines()
+
+    found = False
+    for line in filecontents:
+        if name in line:
+            print('Результат поиска: ', end = ' ')
+            print( line)
+            found = True
+            break
+    if found == False:
+        print('Заметка с таким именем не найдена...', name) 
+    return line
