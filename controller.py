@@ -3,6 +3,7 @@ import export_data
 import import_data
 import csv
 import searchcontact
+import datetime
 
 def distribute(n):
     if n == '1':
@@ -81,7 +82,7 @@ def distribute(n):
 
 
     elif n == '5':
-        print('Выберите формат поиска:', '1 - по id', '2 - по заголовку', sep='\n')
+        print('Выберите формат поиска:', '1 - по id', '2 - по заголовку' '3 - по дате', sep='\n')
         num_exp = input()
     
         if num_exp == '1':
@@ -91,5 +92,9 @@ def distribute(n):
         elif num_exp == '2':
             name = input('Введите заголовок')
             searchcontact.search_name(name)
+
+        elif num_exp == '3':
+            date = datetime.datetime(input('Введите дату в формате год, месяц, день'))
+            searchcontact.search_date(date)
         
         enter = input('Нажмите Enter для завершения')

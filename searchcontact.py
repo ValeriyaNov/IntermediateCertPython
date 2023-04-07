@@ -33,3 +33,19 @@ def search_name(name):
     if found == False:
         print('Заметка с таким именем не найдена...', name) 
     return line
+
+def search_date(date):
+    
+    myfile = open('database.csv', 'r+', encoding='utf-8')
+    filecontents = myfile.readlines()
+
+    found = False
+    for line in filecontents:
+        if date in line:
+            print('Результат поиска: ', end = ' ')
+            print( line)
+            found = True
+            break
+    if found == False:
+        print('Заметка с найденым id не найдена...', id) 
+    return line
