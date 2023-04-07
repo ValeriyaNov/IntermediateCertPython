@@ -3,6 +3,7 @@ import import_data
 import json
 import os
 os.chdir(os.path.dirname(__file__))
+import csv
 
 # Создаем новый контакт
 def new_contact():
@@ -32,11 +33,13 @@ def input_lastname():
 
 
 #  Вводим описание
+#  Вводим описание
 def input_description():
     first = input('Описание: ')
     pa_name = first[1:]
     firstchar = first[0]
     return firstchar.upper() + pa_name
+
 
 
 # Сохраняем в csv
@@ -51,6 +54,7 @@ def save_to_csv(new_contacts, file_name = 'phonebook.csv'):
 
 
 # Читаем csv
+# Читаем csv
 def read_contact(unit = 1, file_name = 'phonebook.csv'):
     with open(file_name, "r", newline='', encoding='utf-8') as f:
         reader = csv.reader(f, delimiter=';')
@@ -62,3 +66,4 @@ def read_contact(unit = 1, file_name = 'phonebook.csv'):
                 for item in row:
                     print(item)
                 print()
+
