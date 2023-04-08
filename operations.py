@@ -5,6 +5,8 @@ import os
 os.chdir(os.path.dirname(__file__))
 import csv
 import datetime
+import pandas as pd
+import searchcontact
 
 
 # Создаем новую заметку
@@ -81,6 +83,17 @@ def read_contact(unit = 1, file_name = 'database.csv'):
                 for item in row:
                     print(item)
                 print()
+
+
+def redact_notes(id):
+    df = pd.read_csv("database.csv")
+    df.head(5)
+    searchcontact.search_id(id)
+    new_body = input("Задайте новое значение в теле заметки")
+    df.loc[df["id"]==id, "тело заметки"] = new_body
+    print("Заметка сохранена")
+
+
 
 
 #import os

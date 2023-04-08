@@ -74,12 +74,9 @@ def distribute(n):
 
 
     elif n == '4':
-        р = 5
+        id_note = input('Напишите id заметки')
+        operations.redact_notes(id_note)
         
-
-
-
-
 
     elif n == '5':
         print('Выберите формат поиска:', '1 - по id', '2 - по заголовку', '3 - по дате', sep='\n')
