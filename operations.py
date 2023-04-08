@@ -87,7 +87,7 @@ def read_contact(unit = 1, file_name = 'database.csv'):
 
 def redact_notes(id):
     df = pd.read_csv("database.csv", delimiter=';')
-    df.head(5)
+    #df.head(5)
     searchcontact.search_id(id)
     new_body = input("Задайте новое значение в теле заметки")
     with open("database.csv", "r", newline='', encoding='utf-8') as f:
@@ -104,16 +104,16 @@ def redact_notes(id):
             new_lst.append(row)
         #print(new_lst)
         
-    with open("database.csv", "a", newline='', encoding='utf-8') as bd:
+    with open("database.csv", "w", newline='', encoding='utf-8') as bd:
         for i in range(len(new_lst)):
             for k in range(len(new_lst[i])):
-                print(new_lst[i])
+                #print(new_lst[i])
                 if k != len(new_lst[i][k]) - 1:
                     bd.write(f'{new_lst[i][k]};')
                     #bd.write('\n')
                 else:
                     bd.write(f'{new_lst[i][k]}')
-            #bd.write('\n')
+            bd.write('\n')
         
         
 
