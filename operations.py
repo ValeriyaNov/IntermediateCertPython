@@ -86,13 +86,41 @@ def read_contact(unit = 1, file_name = 'database.csv'):
 
 
 def redact_notes(id):
-    df = pd.read_csv("database.csv")
+    df = pd.read_csv("database.csv", delimiter=';')
     df.head(5)
     searchcontact.search_id(id)
     new_body = input("Задайте новое значение в теле заметки")
+    with open("database.csv", "r", newline='', encoding='utf-8') as f:
+        reader = csv.reader(f, delimiter=';')
+        new_lst = []
+
+        for row in reader:
+            #print(row)
+            #lst_not = row.split(";")
+            if len(row) < 5: break
+            if id == row[0]:
+                row[2] = new_body
+            print(row)   
+            new_lst.append(row)
+        #print(new_lst)
+        
+    with open("database.csv", "a", newline='', encoding='utf-8') as bd:
+        for i in range(len(new_lst)):
+            if i != len(new_lst) - 1:
+                bd.write(f'{new_lst[i]};')
+            else:
+                bd.write(f'{new_lst[i]}')
+        bd.write('\n')
+        
+        
+
+
+'''
+    new_body = input("Задайте новое значение в теле заметки")
+    hh = has_header()
     df.loc[df["id"]==id, "тело заметки"] = new_body
     print("Заметка сохранена")
-
+'''
 
 
 
