@@ -12,6 +12,8 @@ def search_id(id):
         if len(linelst) < 5: break
         
         found = 0
+        print(id, type(id))
+        print(linelst[0], type(linelst[0]))
         if str(linelst[0]) == str(id):
             print('Результат поиска: ', end = ' ')
             print( line)
