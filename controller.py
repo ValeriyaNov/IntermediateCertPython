@@ -99,3 +99,7 @@ def distribute(n):
             searchcontact.search_date(date)
         
         enter = input('Нажмите Enter для завершения')
+
+    elif n == '6':
+        id_note = input('Напишите id заметки')
+        operations.dell_notes(id_note)

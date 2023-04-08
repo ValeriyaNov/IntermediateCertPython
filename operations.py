@@ -87,7 +87,7 @@ def read_contact(unit = 1, file_name = 'database.csv'):
 
 def redact_notes(id):
     df = pd.read_csv("database.csv", delimiter=';')
-    #df.head(5)
+    
     g = searchcontact.search_id(id)
     if g ==1 : 
         new_body = input("Задайте новое значение в теле заметки")
@@ -107,25 +107,45 @@ def redact_notes(id):
         with open("database.csv", "w", newline='', encoding='utf-8') as bd:
             for i in range(len(new_lst)):
                 for k in range(len(new_lst[i])):
-                    print(new_lst[i][k])
-                #print(new_lst[i])
+                    
                     if k != len(new_lst[i]) - 1:
                         bd.write(f'{new_lst[i][k]};')
-                    #bd.write('\n')
+                    
                     else:
                         bd.write(f'{new_lst[i][k]}')
                 bd.write('\n')
-        print('Заметка записана')
+        print('Заметка изменена')
         
         
+def dell_notes(id):
+    df = pd.read_csv("database.csv", delimiter=';')
+    
+    g = searchcontact.search_id(id)
+    if g ==1 : 
+        
+        with open("database.csv", "r", newline='', encoding='utf-8') as f:
+            reader = csv.reader(f, delimiter=';')
+            new_lst = []
 
-
-'''
-    new_body = input("Задайте новое значение в теле заметки")
-    hh = has_header()
-    df.loc[df["id"]==id, "тело заметки"] = new_body
-    print("Заметка сохранена")
-'''
+            for row in reader:
+            
+                if len(row) < 5: break
+                if id != row[0]:
+                
+                    new_lst.append(row)
+        
+        
+        with open("database.csv", "w", newline='', encoding='utf-8') as bd:
+            for i in range(len(new_lst)):
+                for k in range(len(new_lst[i])):
+                    
+                    if k != len(new_lst[i]) - 1:
+                        bd.write(f'{new_lst[i][k]};')
+                    
+                    else:
+                        bd.write(f'{new_lst[i][k]}')
+                bd.write('\n')
+        print('Заметка удалена')
 
 
 
