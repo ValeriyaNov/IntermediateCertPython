@@ -9,20 +9,20 @@ def search_id(id):
     found = 0
     for line in filecontents:
         linelst = line.split(';')
-        print(linelst)
+        #print(linelst)
         if len(linelst) < 5: 
             break
         
-        print(id, type(id))
-        print(linelst[0], type(linelst[0]))
+        
         if str(linelst[0]) == str(id):
             print('Результат поиска: ', end = ' ')
             print( line)
             found = found+1
+            break
             
     if found == 0:
         print('Заметка с таким id не найдена...') 
-    return line
+    return found
 
 # Поиск по name
 def search_name(name):
