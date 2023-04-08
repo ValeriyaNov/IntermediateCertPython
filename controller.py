@@ -82,7 +82,7 @@ def distribute(n):
 
 
     elif n == '5':
-        print('Выберите формат поиска:', '1 - по id', '2 - по заголовку' '3 - по дате', sep='\n')
+        print('Выберите формат поиска:', '1 - по id', '2 - по заголовку', '3 - по дате', sep='\n')
         num_exp = input()
     
         if num_exp == '1':
@@ -95,10 +95,10 @@ def distribute(n):
 
         elif num_exp == '3':
             str = (input('Введите дату в формате год, месяц, день через запятую без пробелов')).split(",")
-            year = int(str[0])
-            mon = int(str[1])
-            day = int(str[2])
-            date = datetime.datetime(year, mon, day)
+            year = (str[0])
+            mon = (str[1])
+            day = (str[2])
+            date = f"{year}-{mon}-{day}"
             searchcontact.search_date(date)
         
         enter = input('Нажмите Enter для завершения')

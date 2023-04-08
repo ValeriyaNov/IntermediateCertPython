@@ -14,7 +14,7 @@ def search_id(id):
             found = True
             break
     if found == False:
-        print('Заметка с найденым id не найдена...', id) 
+        print('Заметка с таким id не найдена...') 
     return line
 
 # Поиск по name
@@ -31,21 +31,30 @@ def search_name(name):
             found = True
             break
     if found == False:
-        print('Заметка с таким именем не найдена...', name) 
+        print('Заметка с таким заголовком не найдена...') 
     return line
 
 def search_date(date):
-    print(type(date))
+    #print(type(date))
+    #print(date)
     myfile = open('database.csv', 'r+', encoding='utf-8')
     filecontents = myfile.readlines()
-
+    
     found = False
     for line in filecontents:
-        if date == line:
+        linelst = line.split(";")
+    
+        if len(linelst) < 5: break
+        
+        found = 0
+        if linelst[3] == date:
             print('Результат поиска: ', end = ' ')
             print( line)
-            found = True
-            break
-    if found == False:
-        print('Заметка с найденым id не найдена...', id) 
+            found = found + 1
+
+            
+    if found == 0:
+        print('Заметка по введенной дате не найдена...') 
+    
+        
     return line
