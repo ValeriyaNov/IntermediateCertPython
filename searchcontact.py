@@ -23,6 +23,7 @@ def search_id(id):
     if found == 0:
         print('Заметка с таким id не найдена...') 
     return found
+    
 
 # Поиск по name
 def search_name(name):

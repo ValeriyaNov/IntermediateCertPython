@@ -107,6 +107,7 @@ def redact_notes(id):
         with open("database.csv", "w", newline='', encoding='utf-8') as bd:
             for i in range(len(new_lst)):
                 for k in range(len(new_lst[i])):
+                    print(new_lst[i][k])
                 #print(new_lst[i])
                     if k != len(new_lst[i][k]) - 1:
                         bd.write(f'{new_lst[i][k]};')
