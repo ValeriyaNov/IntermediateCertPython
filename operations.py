@@ -110,10 +110,10 @@ def redact_notes(id):
                 print(new_lst[i])
                 if k != len(new_lst[i][k]) - 1:
                     bd.write(f'{new_lst[i][k]};')
-                    bd.write('\n')
+                    #bd.write('\n')
                 else:
                     bd.write(f'{new_lst[i][k]}')
-            bd.write('\n')
+            #bd.write('\n')
         
         
 
