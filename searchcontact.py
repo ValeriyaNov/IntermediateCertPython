@@ -3,17 +3,21 @@
 # Поиск по id
 def search_id(id):
     
-    myfile = open('database.csv', 'r+', encoding='utf-8')
+    myfile = open('database.csv', 'r', encoding='utf-8')
     filecontents = myfile.readlines()
 
     found = False
     for line in filecontents:
-        if id in line:
+        linelst = line.split(';')
+        if len(linelst) < 5: break
+        
+        found = 0
+        if linelst[0] == id:
             print('Результат поиска: ', end = ' ')
             print( line)
-            found = True
-            break
-    if found == False:
+            found = found+1
+            
+    if found == 0:
         print('Заметка с таким id не найдена...') 
     return line
 
