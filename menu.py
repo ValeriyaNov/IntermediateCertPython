@@ -3,7 +3,7 @@ import controller
 
 def greeting():
     print()
-    print('<<ТЕЛЕФОННЫЙ СПРАВОЧНИК>>')
+    print('<Записная книга>')
 
 
 def menu():
