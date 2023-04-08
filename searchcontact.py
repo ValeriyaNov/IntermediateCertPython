@@ -35,13 +35,13 @@ def search_name(name):
     return line
 
 def search_date(date):
-    
+    print(type(date))
     myfile = open('database.csv', 'r+', encoding='utf-8')
     filecontents = myfile.readlines()
 
     found = False
     for line in filecontents:
-        if date in line:
+        if date == line:
             print('Результат поиска: ', end = ' ')
             print( line)
             found = True

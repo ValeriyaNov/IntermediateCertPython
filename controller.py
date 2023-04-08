@@ -94,7 +94,11 @@ def distribute(n):
             searchcontact.search_name(name)
 
         elif num_exp == '3':
-            date = datetime.datetime(input('Введите дату в формате год, месяц, день'))
+            str = (input('Введите дату в формате год, месяц, день через запятую без пробелов')).split(",")
+            year = int(str[0])
+            mon = int(str[1])
+            day = int(str[2])
+            date = datetime.datetime(year, mon, day)
             searchcontact.search_date(date)
         
         enter = input('Нажмите Enter для завершения')
