@@ -1,6 +1,5 @@
 import operations
 import export_data
-import import_data
 import csv
 import searchcontact
 import datetime
@@ -8,7 +7,7 @@ import datetime
 def distribute(n):
     if n == '1':
         temp = operations.new_contact()
-        #temp = operations.new_contact()
+        
         enter = input('Нажмите Enter для завершения')
 
 
@@ -17,14 +16,14 @@ def distribute(n):
         num = int(input())
         if num == 1 or num == 2:
             operations.read_contact(num)
-            #operations.read_contact(num)
+            
         enter = input('Нажмите Enter для выхода в меню ')
 
 
     elif n == '3':
         
         file_name_expott = input('Нипишите имя файла куда вы хотите скопировать данные: ')
-        print('Выберите формат экспорта данных:', '1 - xml', '2 - json', '3 - csv', sep='\n')
+        print('Выберите формат экспорта данных:', '1 - json', '2 - csv', sep='\n')
         num_exp = input()
         if num_exp == '1':
             export_data.csv_to_json(file_name_expott)
@@ -44,15 +43,15 @@ def distribute(n):
         num_exp = input()
     
         if num_exp == '1':
-            id = input('Введите id')
+            id = input('Введите id ')
             searchcontact.search_id(id)
             
         elif num_exp == '2':
-            name = input('Введите заголовок')
+            name = input('Введите заголовок ')
             searchcontact.search_name(name)
 
         elif num_exp == '3':
-            str = (input('Введите дату в формате год, месяц, день через запятую без пробелов')).split(",")
+            str = (input('Введите дату в формате год, месяц, день через запятую без пробелов ')).split(",")
             year = (str[0])
             mon = (str[1])
             day = (str[2])

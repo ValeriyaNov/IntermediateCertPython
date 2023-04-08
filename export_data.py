@@ -22,7 +22,7 @@ def csv_to_csv(user_file_name, data=csv_to_data()):
             bdd.writerow(i)
 
 
-# работает
+
 def csv_to_json(jsonFilePath, csvFilePath='database.csv'):
 
     jsonArray = csv_to_data()

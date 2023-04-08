@@ -9,7 +9,7 @@ def search_id(id):
     found = 0
     for line in filecontents:
         linelst = line.split(';')
-        #print(linelst)
+        
         if len(linelst) < 5: 
             break
         
@@ -43,8 +43,7 @@ def search_name(name):
     return line
 
 def search_date(date):
-    #print(type(date))
-    #print(date)
+    
     myfile = open('database.csv', 'r+', encoding='utf-8')
     filecontents = myfile.readlines()
     

@@ -1,5 +1,4 @@
 import csv
-import import_data
 import json
 import os
 os.chdir(os.path.dirname(__file__))
@@ -37,7 +36,7 @@ def input_id():
                 continue
             else:
                 data.append(row)
-    #print(data)
+    
     flag = False
     while flag == False:
         for line in data:
@@ -56,9 +55,6 @@ def input_id():
     return input_id
 
 
-
-
-
 # Сохраняем в csv
 def save_to_csv(new_note, file_name = 'database.csv'):
     with open(file_name, "a", newline='', encoding='utf-8') as bd:
@@ -70,7 +66,7 @@ def save_to_csv(new_note, file_name = 'database.csv'):
         bd.write('\n')
 
 
-# Читаем csv
+
 # Читаем csv
 def read_contact(unit = 1, file_name = 'database.csv'):
     with open(file_name, "r", newline='', encoding='utf-8') as f:
@@ -147,8 +143,3 @@ def dell_notes(id):
                 bd.write('\n')
         print('Заметка удалена')
 
-
-
-#import os
-#print (os.listdir(os.getcwd()))
-#new_contact()
