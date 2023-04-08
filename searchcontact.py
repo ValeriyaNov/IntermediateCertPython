@@ -12,7 +12,7 @@ def search_id(id):
         if len(linelst) < 5: break
         
         found = 0
-        if linelst[0] == id:
+        if str(linelst[0]) == str(id):
             print('Результат поиска: ', end = ' ')
             print( line)
             found = found+1
