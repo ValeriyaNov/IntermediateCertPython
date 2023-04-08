@@ -100,17 +100,20 @@ def redact_notes(id):
             if len(row) < 5: break
             if id == row[0]:
                 row[2] = new_body
-            print(row)   
+            #print(row)   
             new_lst.append(row)
         #print(new_lst)
         
     with open("database.csv", "a", newline='', encoding='utf-8') as bd:
         for i in range(len(new_lst)):
-            if i != len(new_lst) - 1:
-                bd.write(f'{new_lst[i]};')
-            else:
-                bd.write(f'{new_lst[i]}')
-        bd.write('\n')
+            for k in range(len(new_lst[i])):
+                print(new_lst[i])
+                if k != len(new_lst[i][k]) - 1:
+                    bd.write(f'{new_lst[i][k]};')
+                    bd.write('\n')
+                else:
+                    bd.write(f'{new_lst[i][k]}')
+            bd.write('\n')
         
         
 
